@@ -4,7 +4,7 @@
 
 ### Introdução
 
-- Nesse desafio, deverá ser utilizar os conceitos de [CALMS](https://www.atlassian.com/br/devops/frameworks/calms-framework) e as[Três Maneiras](https://eficienciadigitaleia.com.br/2020/07/13/as-3-maneiras-do-devops/) do DevOps para identificar oportunidades para aprimorar os processos existentes e propor soluções que cultivem uma cultura de colaboração, automação e aprendizado contínuo.
+- Nesse desafio, deverá ser utilizar os conceitos de [CALMS](https://www.atlassian.com/br/devops/frameworks/calms-framework) e as [Três Maneiras](https://eficienciadigitaleia.com.br/2020/07/13/as-3-maneiras-do-devops/) do DevOps para identificar oportunidades para aprimorar os processos existentes e propor soluções que cultivem uma cultura de colaboração, automação e aprendizado contínuo.
 
 ### Descrição da empresa
 
