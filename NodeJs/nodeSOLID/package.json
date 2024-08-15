@@ -1,0 +1,22 @@
+{
+  "name": "nodesolid",
+  "version": "1.0.0",
+  "description": "- Nesse repositório eu segui o que o Diego passou nesse [vídeo](https://www.youtube.com/watch?v=jBOLRzjEERk).",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.1.0",
+    "vitest": "^2.0.5"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0"
+  }
+}
