@@ -6,10 +6,11 @@ import { InMemoryAppointmentRepositories } from "../repositories/in-memory/in-me
 
 describe('Create Appointment', () => {
   it('should be able to create an appointment',() => {
-    const appointmentsRepository = new InMemoryAppointmentRepositories;
+    const startsAt = getFutureDate('2024-08-11');
+    const endsAt = getFutureDate('2024-08-12');
+
+    const appointmentsRepository = new InMemoryAppointmentRepositories();
     const createAppointment = new CreateAppointment(appointmentsRepository);
-    const startsAt = getFutureDate('2024-08-15');
-    const endsAt = getFutureDate('2024-08-17');
 
     expect(createAppointment.execute({
       customer: 'John Doe',
@@ -21,8 +22,8 @@ describe('Create Appointment', () => {
   it('should not be able to create an appointment with overlapping dates',async () => {
     const appointmentsRepository = new InMemoryAppointmentRepositories;
     const createAppointment = new CreateAppointment(appointmentsRepository);
-    const startsAt = getFutureDate('2024-08-15');
-    const endsAt = getFutureDate('2024-08-17');
+    const startsAt = getFutureDate('2024-08-10');
+    const endsAt = getFutureDate('2024-08-15');
 
     await createAppointment.execute({
       customer: 'John Doe',
@@ -33,7 +34,25 @@ describe('Create Appointment', () => {
     expect(createAppointment.execute({
       customer: 'John Doe',
       startsAt: getFutureDate('2024-08-14'),
+      endsAt: getFutureDate('2024-08-18'),
+    })).rejects.toBeInstanceOf(Error);
+
+    expect(createAppointment.execute({
+      customer: 'John Doe',
+      startsAt: getFutureDate('2024-08-08'),
+      endsAt: getFutureDate('2024-08-12'),
+    })).rejects.toBeInstanceOf(Error);
+
+    expect(createAppointment.execute({
+      customer: 'John Doe',
+      startsAt: getFutureDate('2024-08-08'),
       endsAt: getFutureDate('2024-08-17'),
-    })).rejects.toBeInstanceOf(Appointment);
+    })).rejects.toBeInstanceOf(Error);
+
+    expect(createAppointment.execute({
+      customer: 'John Doe',
+      startsAt: getFutureDate('2024-08-11'),
+      endsAt: getFutureDate('2024-08-12'),
+    })).rejects.toBeInstanceOf(Error);
   });
 });

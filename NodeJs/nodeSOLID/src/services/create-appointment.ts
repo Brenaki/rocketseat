@@ -12,14 +12,12 @@ type CreateAppointmentReponse = Appointment;
 export class CreateAppointment {
   constructor(
     private appointmentsRepository: AppointmentsRepository,
-  ){
-
-  }
+  ) { }
 
   async execute({customer, startsAt, endsAt}: CreateAppointmentRequest): Promise<CreateAppointmentReponse> {
     const overlappingAppointment = await this.appointmentsRepository.findOverlappingAppointment(startsAt, endsAt);
 
-    if(!overlappingAppointment){
+    if (overlappingAppointment) {
       throw new Error('Another appointment overlaps this appointment dates');
     }
 
