@@ -3,11 +3,6 @@ import { json } from './middlewares/json.js';
 import { routes } from './routes.js';
 import { extractQueryParams } from './utils/extract-query-params.js';
 
-
-// Query Parameters: /users?search=rocketseat | URL Stateful => Filtros, paginação, não-obrigatórios
-// Route Params: /users/1 | URL Stateful => Identificação de recursos
-// Request Body: { "name": "Diego" } | URL Stateless => Envio de informações de formulários para o servidor (HTTPs)
-
 const server = http.createServer(async (req, res) => {
   const { method, url } = req;
 
@@ -33,4 +28,4 @@ const server = http.createServer(async (req, res) => {
     .end();
 });
 
-server.listen(3333);
+server.listen(3333, () => console.log('Server on!\nhttp://localhost:3333'));
